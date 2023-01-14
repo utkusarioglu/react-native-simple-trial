@@ -1,0 +1,25 @@
+{
+  "name": "react-native-simple.trials.utkusarioglu.com",
+  "dockerComposeFile": [
+    "../.docker/docker-compose.dev.yml",
+    "docker-compose.yml"
+  ],
+  "service": "react-native-simple-trial",
+  "workspaceFolder": "/utkusarioglu/trials/react-native-simple-trial",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"msjsdiag.vscode-react-native",
+		"vscjava.vscode-java-pack",
+		"esbenp.vscode-prettier",
+		"esbenp.prettier-vscode"
+	],
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#006644"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "scripts/post-create-command.sh"
+}

@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  react-native-simple-trial:
+    image: utkusarioglu/react-native-android-devcontainer:1.0.16
+    extra_hosts:
+      - android-host:host-gateway
+    volumes:
+      - type: bind
+        source: ..
+        target: /utkusarioglu/trials/react-native-simple-trial
+      - type: volume
+        source: ccache
+        target: /ccache
+      - type: volume
+        source: gradle
+        target: /home/rn/.gradle
+      - type: volume
+        source: android
+        target: /opt/android
+
+volumes:
+  ccache:
+    name: react-native-simple-trial-ccache
+  gradle:
+    name: react-native-simple-trial-gradle
+
+  android:
+    name: react-native-simple-trial-android

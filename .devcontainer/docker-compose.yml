@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  react-native-simple-trial:
+    volumes:
+      - type: volume
+        source: vscode-extensions
+        target: /home/rn/.vscode-server/extensions
+      - type: volume
+        source: vscode-extensions-insiders
+        target: /home/rn/.vscode-server-insiders/extensions
+      # - type: bind
+      #   source: ~/.config/gh
+      #   target: /home/rn/.config/gh
+      #   read_only: true
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+volumes:
+  vscode-extensions:
+    name: react-native-simple-trial-vscode-extensions
+  vscode-extensions-insiders:
+    name: react-native-simple-trial-vscode-extensions-insiders
