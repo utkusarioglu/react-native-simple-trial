@@ -6,11 +6,14 @@ import { Text, Layout, Button } from "@ui-kitten/components";
 import { type AppNavigatorParams } from "_types/navigation.types";
 import CenterCenterLayout from "_layouts/CenterCenter.layout";
 
-const LoginScreen: FC<
-  NativeStackScreenProps<AppNavigatorParams, "Login"> & {
-    loginOnPress: () => void;
-  }
-> = ({ navigation: { navigate }, loginOnPress }) => (
+type LoginScreenParams = NativeStackScreenProps<AppNavigatorParams, "Login"> & {
+  loginOnPress: () => void;
+};
+
+const LoginScreen: FC<LoginScreenParams> = ({
+  navigation: { navigate },
+  loginOnPress,
+}) => (
   <SafeAreaView style={styles.safeAreaView}>
     <CenterCenterLayout>
       <Text>Log in screen</Text>
