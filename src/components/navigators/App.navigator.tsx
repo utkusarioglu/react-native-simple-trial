@@ -11,6 +11,7 @@ import MessagesScreen from "_screens/Messages.screen";
 import { HelpScreen } from "_screens/Help.screen";
 import LoginScreen from "_screens/Login.screen";
 import { type AppNavigatorParams } from "_types/navigation.types";
+import notificationService from "src/services/notification/notification.service";
 
 const Stack = createNativeStackNavigator<AppNavigatorParams>();
 
@@ -19,21 +20,27 @@ const AppNavigator = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const logoutOnPress = () => setIsLoggedIn(false);
-  const loginOnPress = () => setIsLoggedIn(true);
+  const loginOnPress = () => {
+    notificationService.notifyLogin({
+      title: "Hello",
+      body: "THisis the body",
+    });
+    setIsLoggedIn(true);
+  };
 
   return (
     <NavigationContainer>
       {isLoggedIn ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home">
-            {(props) => <HomeScreen {...props} logoutOnPress={logoutOnPress} />}
+            {props => <HomeScreen {...props} logoutOnPress={logoutOnPress} />}
           </Stack.Screen>
           <Stack.Screen name="Messages" component={MessagesScreen} />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Login">
-            {(props) => <LoginScreen {...props} loginOnPress={loginOnPress} />}
+            {props => <LoginScreen {...props} loginOnPress={loginOnPress} />}
           </Stack.Screen>
           <Stack.Screen
             name="Help"
