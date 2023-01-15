@@ -1,15 +1,19 @@
-import 'react-native-gesture-handler';
-import 'react-native-get-random-values';
-import '@ethersproject/shims';
-import React from 'react';
-import AppNavigator from './components/navigators/App.navigator';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import * as eva from '@eva-design/eva';
-import {ApplicationProvider, IconRegistry, Layout} from '@ui-kitten/components';
-import {EvaIconsPack} from '@ui-kitten/eva-icons';
-import {StyleSheet} from 'react-native';
+import "react-native-gesture-handler";
+import "react-native-get-random-values";
+import "@ethersproject/shims";
+import React, { type FC } from "react";
+import AppNavigator from "./components/navigators/App.navigator";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as eva from "@eva-design/eva";
+import {
+  ApplicationProvider,
+  IconRegistry,
+  Layout,
+} from "@ui-kitten/components";
+import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import { StyleSheet } from "react-native";
 
-const App = () => {
+const App: FC = () => {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
@@ -25,7 +29,9 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {flex: 1},
+  container: {
+    flex: 1,
+  },
 });
 
 export default App;
