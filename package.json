@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@eva-design/eva": "^2.1.1",
+    "@notifee/react-native": "^7.4.0",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
     "@ui-kitten/components": "^5.1.2",
