@@ -7,21 +7,22 @@ interface NotificationContent {
 }
 
 class NotificationService {
-  public async notifyLogin(content: NotificationContent) {
+  public async notifyCurrencySelect(content: NotificationContent) {
     await notifee.requestPermission();
+    const id = "currencySelect";
     const channelId = await notifee.createChannel({
-      id: "login",
-      name: "Login",
+      id,
+      name: "Currency Select",
     });
     await notifee.displayNotification({
-      id: "a",
+      id: content.title,
       title: content.title,
       body: content.body,
       android: {
         channelId,
         smallIcon: content.smallIcon,
         pressAction: {
-          id: "login",
+          id,
         },
       },
     });

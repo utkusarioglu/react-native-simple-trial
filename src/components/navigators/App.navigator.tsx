@@ -11,7 +11,6 @@ import MessagesScreen from "_screens/Messages.screen";
 import { HelpScreen } from "_screens/Help.screen";
 import LoginScreen from "_screens/Login.screen";
 import { type AppNavigatorParams } from "_types/navigation.types";
-import notificationService from "src/services/notification/notification.service";
 
 const Stack = createNativeStackNavigator<AppNavigatorParams>();
 
@@ -21,10 +20,6 @@ const AppNavigator = () => {
 
   const logoutOnPress = () => setIsLoggedIn(false);
   const loginOnPress = () => {
-    notificationService.notifyLogin({
-      title: "Hello",
-      body: "THisis the body",
-    });
     setIsLoggedIn(true);
   };
 

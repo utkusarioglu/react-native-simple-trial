@@ -2,7 +2,8 @@ import React, { type FC, useState, useEffect } from "react";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { type AppNavigatorParams } from "_types/navigation.types";
-import ethereumService from "src/services/ethereum/ethereum.service";
+import CurrencyListView from "_views/currency-list/CurrencyList.view";
+
 import {
   Button,
   Divider,
@@ -18,14 +19,6 @@ type MessagesScreenProps = NativeStackScreenProps<
 >;
 
 const MessagesScreen: FC<MessagesScreenProps> = ({ navigation }) => {
-  const [blockNums, setBlockNums] = useState<number[]>([]);
-
-  useEffect(() => {
-    ethereumService.doThings(e => {
-      setBlockNums(n => [...n, e]);
-    });
-  }, []);
-
   const navigateBack = () => {
     navigation.goBack();
   };
@@ -43,9 +36,10 @@ const MessagesScreen: FC<MessagesScreenProps> = ({ navigation }) => {
           accessoryLeft={BackAction}
         />
         <Divider />
+        <CurrencyListView />
+        {/* <BackIcon height={20} width={20} /> */}
         <Text category="h1">Messages</Text>
         <Button>Button</Button>
-        <Text>{JSON.stringify(blockNums)}</Text>
       </TopLeftLayout>
     </SafeAreaView>
   );
