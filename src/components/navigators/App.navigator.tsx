@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-import { StatusBar, useColorScheme } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  NavigationContainer,
-  DarkTheme,
-  DefaultTheme,
-} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "_screens/Home.screen";
 import MessagesScreen from "_screens/Messages.screen";
 import { HelpScreen } from "_screens/Help.screen";
 import LoginScreen from "_screens/Login.screen";
 import { type AppNavigatorParams } from "_types/navigation.types";
+import { useNavigationTheme } from "_hooks/theme.hook";
 
 const Stack = createNativeStackNavigator<AppNavigatorParams>();
-
 const AppNavigator = () => {
-  const scheme = useColorScheme();
+  const navigationTheme = useNavigationTheme();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const logoutOnPress = () => setIsLoggedIn(false);
@@ -24,7 +19,7 @@ const AppNavigator = () => {
   };
 
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       {isLoggedIn ? (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home">

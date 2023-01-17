@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 import { StyleSheet, View } from "react-native";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, Layout, Button } from "@ui-kitten/components";
+import { Text, Button } from "react-native-paper";
 import { type AppNavigatorParams } from "_types/navigation.types";
 import CenterCenterLayout from "_layouts/CenterCenter.layout";
 
@@ -23,7 +23,6 @@ const LoginScreen: FC<LoginScreenParams> = ({
           Login
         </Button>
         <Button
-          appearance="outline"
           style={styles.button}
           onPress={() => navigate("Help", { content: "This is the content" })}>
           Help

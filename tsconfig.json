@@ -12,6 +12,7 @@
       "_layouts/*": ["src/components/layouts/*"],
       "_navigators/*": ["src/components/navigators/*"],
       "_types/*": ["src/types/*"],
+      "_hooks/*": ["src/hooks/*"]
     }
   }
 }

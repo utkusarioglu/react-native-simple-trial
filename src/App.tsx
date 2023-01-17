@@ -4,34 +4,21 @@ import "@ethersproject/shims";
 import React, { type FC } from "react";
 import AppNavigator from "./components/navigators/App.navigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import * as eva from "@eva-design/eva";
-import {
-  ApplicationProvider,
-  IconRegistry,
-  Layout,
-} from "@ui-kitten/components";
-import { EvaIconsPack } from "@ui-kitten/eva-icons";
-import { StyleSheet } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
+import { usePaperTheme } from "_hooks/theme.hook";
 
 const App: FC = () => {
+  const paperTheme = usePaperTheme();
+
   return (
     <>
-      <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva.dark}>
+      <PaperProvider theme={paperTheme}>
         <SafeAreaProvider>
-          <Layout style={styles.container}>
-            <AppNavigator />
-          </Layout>
+          <AppNavigator />
         </SafeAreaProvider>
-      </ApplicationProvider>
+      </PaperProvider>
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
