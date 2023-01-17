@@ -1,13 +1,12 @@
 import { type FC, type ReactNode } from "react";
-import { Layout } from "@ui-kitten/components";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 type CenterCenterLayoutProps = {
   children?: ReactNode | ReactNode[];
 };
 
 const CenterCenterLayout: FC<CenterCenterLayoutProps> = ({ children }) => (
-  <Layout style={styles.container}>{children}</Layout>
+  <View style={styles.container}>{children}</View>
 );
 
 const styles = StyleSheet.create({
