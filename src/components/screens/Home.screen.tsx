@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import { Button, Divider, TopNavigation } from "@ui-kitten/components";
+import { Button, Appbar } from "react-native-paper";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import { type AppNavigatorParams } from "_types/navigation.types";
 import CenterCenterLayout from "_layouts/CenterCenter.layout";
@@ -16,8 +16,13 @@ const HomeScreen: FC<HomeScreenProps> = ({ navigation, logoutOnPress }) => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <TopNavigation title="Heyo" alignment="center" />
-      <Divider />
+      <Appbar.Header>
+        <Appbar.Content
+          title="Home"
+          accessibilityLabelledBy=""
+          accessibilityLanguage="EN-US"
+        />
+      </Appbar.Header>
       <CenterCenterLayout>
         <View style={styles.buttonContainer}>
           <Button style={styles.button} onPress={navigateMessages}>

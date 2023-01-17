@@ -1,17 +1,9 @@
-import React, { type FC, useState, useEffect } from "react";
+import React, { type FC } from "react";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { type AppNavigatorParams } from "_types/navigation.types";
 import CurrencyListView from "_views/currency-list/CurrencyList.view";
-
-import {
-  Button,
-  Divider,
-  Text,
-  TopNavigation,
-  TopNavigationAction,
-} from "@ui-kitten/components";
-import TopLeftLayout from "_layouts/TopLeft.layout";
+import { Button, Text, Appbar } from "react-native-paper";
 
 type MessagesScreenProps = NativeStackScreenProps<
   AppNavigatorParams,
@@ -23,24 +15,23 @@ const MessagesScreen: FC<MessagesScreenProps> = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const BackAction = () => (
-    <TopNavigationAction icon={<Text>◀</Text>} onPress={navigateBack} />
-  );
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <TopLeftLayout>
-        <TopNavigation
-          title="MyApp"
-          alignment="center"
-          accessoryLeft={BackAction}
+      <Appbar.Header>
+        <Appbar.BackAction
+          onPress={navigateBack}
+          accessibilityLabelledBy="button"
+          accessibilityLanguage="EN-US"
         />
-        <Divider />
-        <CurrencyListView />
-        {/* <BackIcon height={20} width={20} /> */}
-        <Text category="h1">Messages</Text>
-        <Button>Button</Button>
-      </TopLeftLayout>
+        <Appbar.Content
+          title="Messages"
+          accessibilityLabelledBy="title"
+          accessibilityLanguage="EN-US"
+        />
+      </Appbar.Header>
+      <Text>Messages</Text>
+      <Button icon="camera">Button</Button>
+      <CurrencyListView />
     </SafeAreaView>
   );
 };

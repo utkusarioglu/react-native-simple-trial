@@ -1,43 +1,8 @@
-import React, { type FC, useState, useEffect } from "react";
-import { Divider, List, ListItem, Text } from "@ui-kitten/components";
+import React, { type FC } from "react";
+import { FlatList } from "react-native";
+import { Text, Divider, List } from "react-native-paper";
 import notificationService from "src/services/notification/notification.service";
-
-const CURRENCIES_LIST_API =
-  "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json";
-
-interface CurrencyListing {
-  symbol: string; // ex: USD
-  name: string; // ex: United States Dollar
-}
-
-interface CurrencyListings {
-  timestamp: number; // epoch
-  list: CurrencyListing[];
-}
-
-const INITIAL_CURRENCY_LISTING = {
-  timestamp: 0,
-  list: [],
-};
-
-function useCurrencyListings() {
-  const [currencies, setCurrencies] = useState<CurrencyListings>(
-    INITIAL_CURRENCY_LISTING,
-  );
-  useEffect(() => {
-    fetch(CURRENCIES_LIST_API)
-      .then(data => data.json())
-      .then(json => {
-        const list = Object.entries<string>(json).map(([key, value]) => ({
-          symbol: value!,
-          name: key!,
-        }));
-        const timestamp = Date.now();
-        setCurrencies({ timestamp, list });
-      });
-  }, []);
-  return currencies;
-}
+import { useCurrencyListings } from "_hooks/currency.hook";
 
 const CurrencyListView: FC = () => {
   const currencies = useCurrencyListings();
@@ -51,20 +16,23 @@ const CurrencyListView: FC = () => {
   }
 
   return (
-    <List
+    <FlatList
       data={currencies.list}
       ItemSeparatorComponent={Divider}
+      keyExtractor={item => item.symbol}
       renderItem={({ item: { symbol, name } }) => (
-        <ListItem
-          key={symbol}
+        <List.Item
           title={symbol}
           description={name}
+          left={() => <List.Icon icon="folder" />}
           onPress={() =>
             notificationService.notifyCurrencySelect({
               title: symbol,
               body: `You have selected ${name}`,
             })
           }
+          accessibilityLabelledBy=""
+          accessibilityLanguage="EN-US"
         />
       )}
     />
