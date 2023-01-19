@@ -1,26 +1,28 @@
 import React, { type FC } from "react";
-import { StyleSheet, Button } from "react-native";
+import { StyleSheet } from "react-native";
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
 import { type AppNavigatorParams } from "_types/navigation.types";
 import LoginLayout from "_layouts/login.layout";
 
 type LoginScreenParams = NativeStackScreenProps<AppNavigatorParams, "Login"> & {
-  loginOnPress: () => void;
+  // loginOnPress: () => void;
 };
 
-const LoginScreen: FC<LoginScreenParams> = ({
-  navigation: { navigate },
-  loginOnPress,
-}) => (
-  <SafeAreaView style={styles.safeAreaView}>
-    <LoginLayout />
-    {/* <Button onPress={loginOnPress} title="Login" />
+const LoginScreen: FC<LoginScreenParams> = (
+  {
+    // navigation: { navigate },
+    // loginOnPress,
+  },
+) => (
+  <LoginLayout />
+  // <SafeAreaView style={styles.safeAreaView}>
+  /* <Button onPress={loginOnPress} title="Login" />
     <Button
       title="Help"
       onPress={() => navigate("Help", { content: "This is the content" })}
-    /> */}
-  </SafeAreaView>
+    /> */
+  // </SafeAreaView>
 );
 
 const styles = StyleSheet.create({

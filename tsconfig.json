@@ -13,7 +13,9 @@
       "_navigators/*": ["src/components/navigators/*"],
       "_types/*": ["src/types/*"],
       "_hooks/*": ["src/hooks/*"],
-      "_services/*": ["src/services/*"]
+      "_services/*": ["src/services/*"],
+      "_slices/*": ["src/slices/*"],
+      "_store": ["src/store"]
     }
   }
 }
