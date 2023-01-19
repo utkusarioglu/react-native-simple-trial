@@ -1,8 +1,8 @@
 import React, { type FC } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import { Appbar, Text } from "react-native-paper";
-import CenterCenterLayout from "_layouts/CenterCenter.layout";
+import { Appbar } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import RatesView from "_views/rates/Rates.view";
 
 interface HomeLayoutProps {}
 
@@ -27,11 +27,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({}) => {
           accessibilityLanguage="EN-US"
         />
       </Appbar.Header>
-      <CenterCenterLayout>
-        <View style={styles.buttonContainer}>
-          <Text>This will be filled later</Text>
-        </View>
-      </CenterCenterLayout>
+      <RatesView />
     </SafeAreaView>
   );
 };
