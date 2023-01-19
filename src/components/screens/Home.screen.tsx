@@ -4,10 +4,10 @@ import { type AppNavigatorParams } from "_types/navigation.types";
 import HomeTabs from "_navigators/Home.navigator";
 
 type HomeScreenProps = NativeStackScreenProps<AppNavigatorParams, "Home"> & {
-  logoutOnPress: () => void;
+  // logoutOnPress: () => void;
 };
 
-const HomeScreen: FC<HomeScreenProps> = ({ navigation, logoutOnPress }) => {
+const HomeScreen: FC<HomeScreenProps> = ({ navigation }) => {
   return <HomeTabs />;
 };
 

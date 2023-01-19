@@ -1,16 +1,17 @@
 import React, { type FC } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import LoginCardView from "_views/login/login.view";
 
 const LoginLayout: FC = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.topShim} />
       <View style={styles.loginViewContainer}>
         <LoginCardView />
       </View>
       <View style={styles.topDecoration} />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React, { type FC } from "react";
 import { View, StyleSheet } from "react-native";
 import { TextInput, Surface, Button } from "react-native-paper";
+import { setLoggedIn } from "_slices/app/app.slice";
 
 const LoginSurfaceView: FC = () => {
   const { navigate } = useNavigation();
@@ -14,7 +15,11 @@ const LoginSurfaceView: FC = () => {
 };
 
 const LoginForm = () => {
-  const loginOnPress = () => console.log("This hasn't been implemented yet");
+  const loginOnPress = () => {
+    setLoggedIn(true);
+  };
+  const signUpOnPress = () => console.log("This hasn't been implemented yet");
+
   return (
     <View>
       <TextInput
@@ -30,7 +35,7 @@ const LoginForm = () => {
       <Button onPress={loginOnPress} style={styles.button} mode="contained">
         Login
       </Button>
-      <Button onPress={loginOnPress} style={styles.button}>
+      <Button onPress={signUpOnPress} style={styles.button}>
         Sign up instead
       </Button>
     </View>

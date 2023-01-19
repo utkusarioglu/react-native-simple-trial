@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { View, StyleSheet } from "react-native";
 import { Button, Appbar, Text, Avatar } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { setLoggedIn } from "_slices/app/app.slice";
 
 const SOURCE_IMAGE =
   "https://www.utkusarioglu.com/_next/static/images/utku-1x1-1880-8894350f792cbca71b719e9ef7927363.jpg";
@@ -10,7 +11,7 @@ const ProfileLayout = () => {
   const { goBack } = useNavigation();
 
   const logoutOnPress = () => {
-    console.log("This hasn't been implemented yet");
+    setLoggedIn(false);
   };
 
   return (
